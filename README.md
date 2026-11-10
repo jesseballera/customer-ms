@@ -1,4 +1,4 @@
-# customer
+# customer-ms
 
 ### Swagger UI
 ##### Access in this endpoint
