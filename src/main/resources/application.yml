@@ -1,0 +1,43 @@
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  error:
+    include-stacktrace: never
+    include-exception: false
+
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/demo_db;AUTO_SERVER=TRUE
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: H2EmbeddedHikariPool
+      maximum-pool-size: 10
+      connection-timeout: 30000
+      idle-timeout: 600000
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  h2:
+    console:
+      enabled: true
+
+logging:
+  level:
+    com.zaxxer.hikari: INFO
+
+springdoc:
+  paths-to-exclude: /h2-console/**
+  swagger-ui:
+    path: /swagger-ui.html
